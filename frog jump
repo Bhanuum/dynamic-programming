@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int fun(int i,int a[],int n,vector<int>&an)
+{
+    if(i==n-1)
+    return 0;
+    if(an[i]!=-1)return an[i];
+    int left=abs(a[i]-a[i+1])+fun(i+1,a,n,an);
+    int right=INT_MAX;
+    if(i+2<n)
+    {
+        right=abs(a[i]-a[i+2])+fun(i+2,a,n,an);
+    }
+    return an[i]=min(left,right);
+    
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    vector<int>an(n+1,-1);
+    cout<<fun(0,a,n,an);
+    
+}
