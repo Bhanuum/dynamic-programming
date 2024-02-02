@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>a(n+1,0);
+    a[0]=0;
+    a[1]=0;
+    for(int i=2;i<=n;i++)
+    {
+        int x=INT_MAX,b=INT_MAX,c=INT_MAX;
+        if(i%3==0)
+        {
+            x=a[i/3];
+        }
+        if(i%2==0)
+        {
+            b=a[i/2];
+            
+        }
+        c=a[i-1];
+        a[i]=min(x,min(b,c))+1;
+    }
+    for(int i=0;i<a.size();i++)
+    {
+        cout<<a[i]<<" ";
+    }
+}
+
+/3,/2 or -1 how many ,movesss
